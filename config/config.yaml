@@ -1,0 +1,16 @@
+server:
+  app_name: "Favorite service"
+  port: ":8081"
+  debug: true
+database:
+  user: "Cracher"
+  password: "123"
+  host: "localhost"
+  port: "5432"
+  name: "favorite_hist"
+  ssl_mode: "disable"
+  retries: 1
+client:
+  BaseUrl: "http://127.0.0.1:8079"
+  Timeout: 5
+  Retries: 3
