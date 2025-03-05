@@ -28,12 +28,12 @@ func (repo *FavoriteRepository) GetFavoritesByUserID(userID int) ([]entity.Favor
 func (repo *FavoriteRepository) DeleteFavorite(userID, favID int) error {
 	var favorite entity.Favorite
 
-	result := repo.DB.Where("user_id = ? AND id = ?", userID, favID).Delete(&favorite)
-	if result.Error != nil {
-		return result.Error // Возвращаем ошибку, если что-то пошло не так
-	}
+	result := repo.DB.Where("user_id = ? AND product_id = ?", userID, favID).Delete(&favorite)
 	if result.RowsAffected == 0 {
 		return ErrRecordNotFound // Ошибка, если запись не найдена
+	}
+	if result.Error != nil {
+		return result.Error // Возвращаем ошибку, если что-то пошло не так
 	}
 	return nil // Успешное удаление
 }

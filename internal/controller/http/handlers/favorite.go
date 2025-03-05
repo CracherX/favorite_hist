@@ -62,7 +62,7 @@ func (h *FavoriteHandler) DeleteFavorite(w http.ResponseWriter, r *http.Request)
 
 	data := dto.DeleteFavoriteRequest{
 		JWT:        query.Get("jwt"),
-		FavoriteId: query.Get("id"),
+		FavoriteId: query.Get("productID"),
 	}
 
 	if err := h.val.Validate(&data); err != nil {
